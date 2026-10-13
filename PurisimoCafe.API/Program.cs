@@ -47,6 +47,13 @@ builder.Services.AddScoped<MovimientosInventarioServicio>();
 
 builder.Services.AddScoped<VentaDatos>();
 builder.Services.AddScoped<VentaServicio>();
+
+builder.Services.AddScoped<ProveedorDatos>();
+builder.Services.AddScoped<ProveedorServicio>();
+
+builder.Services.AddScoped<CompraDatos>();
+builder.Services.AddScoped<CompraServicio>();
+
 // Inyección de dependencias (registrar interfaces para permitir testing con Moq)
 builder.Services.AddScoped<Capa_Datos.IUsuarioDatos, UsuarioDatos>();
 builder.Services.AddScoped<Capa_Datos.IProductoDatos, ProductoDatos>();
@@ -54,6 +61,8 @@ builder.Services.AddScoped<Capa_Datos.ICategoriaDatos, CategoriaDatos>();
 builder.Services.AddScoped<Capa_Datos.IInventarioDatos, InventarioDatos>();
 builder.Services.AddScoped<Capa_Datos.IMovimientosInventarioDatos, MovimientosInventarioDatos>();
 builder.Services.AddScoped<Capa_Datos.IVentaDatos, VentaDatos>();
+builder.Services.AddScoped<Capa_Datos.IProveedorDatos, ProveedorDatos>();
+builder.Services.AddScoped<Capa_Datos.ICompraDatos, CompraDatos>();
 
 // Configuración de JWT
 var jwtSettings = builder.Configuration.GetSection("Jwt");
