@@ -1,6 +1,5 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using Capa_Datos;
 using Capa_Entidades;
 using Konscious.Security.Cryptography;
 

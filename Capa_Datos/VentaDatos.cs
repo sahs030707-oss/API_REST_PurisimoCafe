@@ -3,18 +3,15 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 
-
 namespace Capa_Datos
 {
-
-    // Implementa IVentaDatos para permitir inyección y mocking en pruebas unitarias
     public class VentaDatos : IVentaDatos
     {
         private readonly string _connectionString;
 
         public VentaDatos(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = configuration.GetConnectionString("DefaultConnection")!;
         }
 
         public void RegistrarVenta(Ventas venta, List<DetalleVenta> detalles)
@@ -25,21 +22,26 @@ namespace Capa_Datos
 
             try
             {
-                // Insertar venta y obtener el ID
+                // ── 1. Insertar encabezado de venta ──
                 using var cmdVenta = new SqlCommand("Sp_InsertarVenta", conexion, transaccion)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
                 cmdVenta.Parameters.AddWithValue("@FechaVenta", venta.FechaVenta);
                 cmdVenta.Parameters.AddWithValue("@Total", venta.Total);
+                cmdVenta.Parameters.AddWithValue("@UsuarioID", (object?)venta.UsuarioID ?? DBNull.Value);
 
-                var paramVentaID = new SqlParameter("@VentaID", SqlDbType.Int) { Direction = ParameterDirection.Output };
+                var paramVentaID = new SqlParameter("@VentaID", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Output
+                };
                 cmdVenta.Parameters.Add(paramVentaID);
-
                 cmdVenta.ExecuteNonQuery();
-                int ventaId = (int)paramVentaID.Value;
 
-                // Insertar detalles
+                int ventaId = (int)paramVentaID.Value;
+                venta.VentaID = ventaId;   // devolver el ID generado
+
+                // ── 2. Insertar cada detalle ──
                 foreach (var det in detalles)
                 {
                     using var cmdDetalle = new SqlCommand("Sp_InsertarDetalleVenta", conexion, transaccion)
@@ -48,6 +50,8 @@ namespace Capa_Datos
                     };
                     cmdDetalle.Parameters.AddWithValue("@VentaID", ventaId);
                     cmdDetalle.Parameters.AddWithValue("@ProductoID", det.ProductoID);
+                    // NombreProducto: guardar snapshot del nombre en el momento de la venta
+                    cmdDetalle.Parameters.AddWithValue("@NombreProducto", (object?)det.Nombre ?? DBNull.Value);
                     cmdDetalle.Parameters.AddWithValue("@PrecioUnitario", det.PrecioUnitario);
                     cmdDetalle.Parameters.AddWithValue("@Cantidad", det.Cantidad);
                     cmdDetalle.Parameters.AddWithValue("@Subtotal", det.Subtotal);
@@ -67,7 +71,6 @@ namespace Capa_Datos
         public List<Ventas> ObtenerVentas()
         {
             var lista = new List<Ventas>();
-
             using var conexion = new SqlConnection(_connectionString);
             conexion.Open();
             using var cmd = new SqlCommand("Sp_ObtenerVentas", conexion)
@@ -81,17 +84,17 @@ namespace Capa_Datos
                 {
                     VentaID = Convert.ToInt32(reader["VentaID"]),
                     FechaVenta = Convert.ToDateTime(reader["FechaVenta"]),
-                    Total = Convert.ToDecimal(reader["Total"])
+                    Total = Convert.ToDecimal(reader["Total"]),
+                    Cajero = reader["Cajero"].ToString() ?? string.Empty,
+                    CostoTotal = Convert.ToDecimal(reader["CostoTotal"])
                 });
             }
-
             return lista;
         }
 
         public Ventas? ObtenerVentaPorId(int id)
         {
             Ventas? venta = null;
-
             using var conexion = new SqlConnection(_connectionString);
             conexion.Open();
             using var cmd = new SqlCommand("Sp_ObtenerVentaPorId", conexion)
@@ -99,10 +102,9 @@ namespace Capa_Datos
                 CommandType = CommandType.StoredProcedure
             };
             cmd.Parameters.AddWithValue("@VentaID", id);
-
             using var reader = cmd.ExecuteReader();
 
-            // Leer la venta principal
+            // Encabezado
             if (reader.Read())
             {
                 venta = new Ventas
@@ -110,11 +112,13 @@ namespace Capa_Datos
                     VentaID = Convert.ToInt32(reader["VentaID"]),
                     FechaVenta = Convert.ToDateTime(reader["FechaVenta"]),
                     Total = Convert.ToDecimal(reader["Total"]),
+                    Cajero = reader["Cajero"].ToString() ?? string.Empty,
+                    CostoTotal = Convert.ToDecimal(reader["CostoTotal"]),
                     Detalles = new List<DetalleVenta>()
                 };
             }
 
-            // Pasar al siguiente result set (detalles)
+            // Detalles
             if (venta != null && reader.NextResult())
             {
                 while (reader.Read())
@@ -124,10 +128,11 @@ namespace Capa_Datos
                         DetalleVentaID = Convert.ToInt32(reader["DetalleVentaID"]),
                         VentaID = Convert.ToInt32(reader["VentaID"]),
                         ProductoID = Convert.ToInt32(reader["ProductoID"]),
-                        Nombre = Convert.ToString(reader["NombreProducto"]) ?? string.Empty,
+                        Nombre = reader["NombreProducto"].ToString() ?? string.Empty,
                         PrecioUnitario = Convert.ToDecimal(reader["PrecioUnitario"]),
                         Cantidad = Convert.ToInt32(reader["Cantidad"]),
-                        Subtotal = Convert.ToDecimal(reader["Subtotal"])
+                        Subtotal = Convert.ToDecimal(reader["SubTotal"]),
+                        CostoProduccion = Convert.ToDecimal(reader["CostoProduccion"])
                     });
                 }
             }

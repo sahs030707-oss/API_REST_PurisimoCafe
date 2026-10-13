@@ -18,6 +18,8 @@ namespace Capa_Entidades
 
         public string Correo { get; set; } = string.Empty;
 
+        public bool Estado { get; set; }
+
         public string Contraseña { get; set; } = string.Empty;
 
         public int RolID { get; set; }
