@@ -1,0 +1,88 @@
+19/10/2026 23:37:43	Este registro contiene información acerca de la operación de importación de esquema en el proyecto 'PurisimoCafeDB' del equipo 'SAHS' por el usuario 'Steven Hernandez'.
+19/10/2026 23:37:43	Se inició la importación del esquema de la base de datos.
+19/10/2026 23:37:50	Recopilando inicios de sesión
+19/10/2026 23:38:08	Recopilando credenciales de la base de datos
+19/10/2026 23:38:08	Recopilando opciones de base de datos
+19/10/2026 23:38:08	Recopilando la opción de configuración de ámbito de la base de datos genérica
+19/10/2026 23:38:08	Recopilando usuarios
+19/10/2026 23:38:08	Recopilando roles
+19/10/2026 23:38:08	Recopilando roles de aplicación
+19/10/2026 23:38:08	Recopilando pertenencias a roles
+19/10/2026 23:38:08	Recopilando grupos de archivos
+19/10/2026 23:38:08	Recopilando catálogos de texto completo
+19/10/2026 23:38:08	Recopilando ensamblados
+19/10/2026 23:38:08	Recopilando certificados
+19/10/2026 23:38:08	Recopilando claves simétricas
+19/10/2026 23:38:08	Recopilando claves simétricas cifradas
+19/10/2026 23:38:08	Recopilando esquemas
+19/10/2026 23:38:08	Recopilando colecciones de esquemas XML
+19/10/2026 23:38:08	Recopilando tipos de datos definidos por el usuario
+19/10/2026 23:38:08	Recopilando tipos definidos por el usuario
+19/10/2026 23:38:08	Recopilando tipos de tabla
+19/10/2026 23:38:08	Recopilando claves únicas para tipos de tabla
+19/10/2026 23:38:08	Recopilando claves principales para tipos de tabla
+19/10/2026 23:38:08	Recopilando índices para tipos de tablas
+19/10/2026 23:38:08	Recopilando restricciones CHECK para tipos de tabla
+19/10/2026 23:38:08	Recopilando restricciones DEFAULT para tipos de tabla
+19/10/2026 23:38:08	Recopilando funciones de partición
+19/10/2026 23:38:08	Recopilando esquemas de partición
+19/10/2026 23:38:08	Recopilando funciones
+19/10/2026 23:38:08	Recopilando funciones cifradas
+19/10/2026 23:38:08	Recopilando agregados
+19/10/2026 23:38:08	Recopilando procedimientos
+19/10/2026 23:38:08	Recopilando procedimientos cifrados
+19/10/2026 23:38:08	Recopilando tablas
+19/10/2026 23:38:09	Recopilando claves principales
+19/10/2026 23:38:09	Recopilando restricciones UNIQUE
+19/10/2026 23:38:09	Recopilando claves externas
+19/10/2026 23:38:09	Recopilando restricciones DEFAULT
+19/10/2026 23:38:09	Recopilando restricciones CHECK
+19/10/2026 23:38:09	Recopilando vistas
+19/10/2026 23:38:09	Recopilando vistas cifradas
+19/10/2026 23:38:09	Recopilando índices
+19/10/2026 23:38:09	Recopilando estadísticas
+19/10/2026 23:38:09	Recopilando listas de palabras irrelevantes de índices de texto completo
+19/10/2026 23:38:09	Recopilando listas de propiedades de búsqueda
+19/10/2026 23:38:09	Recopilando propiedades de búsqueda
+19/10/2026 23:38:09	Recopilando índices de texto completo
+19/10/2026 23:38:09	Recopilando índices de almacenamiento de columnas
+19/10/2026 23:38:09	Recopilando índices espaciales
+19/10/2026 23:38:09	Recopilando índices XML
+19/10/2026 23:38:09	Recolección de índices JSON
+19/10/2026 23:38:09	Recopilando índices XML selectivos
+19/10/2026 23:38:09	Recopilando desencadenadores cifrados
+19/10/2026 23:38:09	Recopilando desencadenadores
+19/10/2026 23:38:09	Recopilando DDL triggers cifrados y de CLR
+19/10/2026 23:38:09	Recopilando DDL triggers
+19/10/2026 23:38:09	Creación de la restricción perimetral en curso
+19/10/2026 23:38:09	Recopilando sinónimos
+19/10/2026 23:38:09	Recopilando valores predeterminados
+19/10/2026 23:38:09	Recopilando enlaces UDDT de restricción de datos
+19/10/2026 23:38:09	Recopilando reglas
+19/10/2026 23:38:09	Recopilando enlaces UDDT de restricción de datos
+19/10/2026 23:38:09	Recopilando tipos de mensaje
+19/10/2026 23:38:09	Recopilando colas
+19/10/2026 23:38:09	Recopilando contratos
+19/10/2026 23:38:09	Recopilando servicios
+19/10/2026 23:38:09	Recopilando notificaciones de eventos
+19/10/2026 23:38:09	Recopilando enlaces de servicio remoto
+19/10/2026 23:38:09	Recopilando prioridades de Broker
+19/10/2026 23:38:09	Recopilando firmas
+19/10/2026 23:38:09	Recopilando opciones de compresión
+19/10/2026 23:38:09	Recopilando tipos de secuencia
+19/10/2026 23:38:09	Recopilando directivas de seguridad
+19/10/2026 23:38:09	Recopilar claves de cifrado de columna
+19/10/2026 23:38:09	Recopilando claves maestras de columna
+19/10/2026 23:38:09	Recopilando orígenes de datos externos
+19/10/2026 23:38:09	Recopilando formatos de archivo externos
+19/10/2026 23:38:09	Recopilando modelos externos
+19/10/2026 23:38:09	Recopilando tablas externas
+19/10/2026 23:38:09	Recopilando opciones de compresión de índice XML
+19/10/2026 23:38:09	Recopilando propiedades extendidas
+19/10/2026 23:38:09	Recopilando ensamblados
+19/10/2026 23:38:10	Recopilando inicios de sesión
+19/10/2026 23:38:13	Buscando elementos duplicados en el proyecto
+19/10/2026 23:38:13	Ha finalizado el procesamiento de los elementos duplicados
+19/10/2026 23:38:15	Finalizó la importación de la base de datos.
+19/10/2026 23:38:15	Se guardó un resumen de la importación en la siguiente ubicación: C:\Users\Steven Hernandez\source\repos\PurisimoCafe.API\PurisimoCafe.API\PurisimoCafeDB\Registros de importación de esquemas\PurisimoCafeDB_20261020053743.log
+19/10/2026 23:38:15	Haga clic en Finalizar para continuar...
