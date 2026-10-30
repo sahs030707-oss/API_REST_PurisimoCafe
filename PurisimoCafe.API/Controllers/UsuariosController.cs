@@ -38,6 +38,41 @@ namespace PurisimoCafe.API.Controllers
                 return StatusCode(500, $"Error al obtener usuarios: {ex.Message}");
             }
         }
+
+        /// <summary>
+        /// Muestra Todos Los Usuarios, Activos E Inactivos
+        /// </summary>
+        [HttpGet("Todos")]
+        public IActionResult GetTodos()
+        {
+            try
+            {
+                var lista = _usuarioServicio.GetTodosLosUsuarios();
+                return Ok(lista);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener usuarios: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Permite Activar O Desactivar Un Usuario
+        /// </summary>
+        [HttpPut("{id}/Estado")]
+        public IActionResult CambiarEstado(int id, [FromQuery] bool activo)
+        {
+            try
+            {
+                _usuarioServicio.CambiarEstadoUsuario(id, activo);
+                return Ok("Estado del usuario actualizado correctamente");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al cambiar el estado: {ex.Message}");
+            }
+        }
+
         /// <summary>
         /// Muestra Un Usuario Registrado Por Su ID
         /// </summary>

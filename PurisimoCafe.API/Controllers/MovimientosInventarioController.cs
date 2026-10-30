@@ -17,6 +17,23 @@ namespace PurisimoCafe.API.Controllers
             _movimientosServicio = movimientosServicio;
         }
 
+        /// <summary>
+        /// Muestra Todas Las Mermas Registradas
+        /// </summary>
+        [HttpGet]
+        public IActionResult ObtenerMovimientos()
+        {
+            try
+            {
+                var lista = _movimientosServicio.ObtenerMovimientos();
+                return Ok(lista);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener movimientos: {ex.Message}");
+            }
+        }
+
         [HttpPost]
         public IActionResult InsertarMovimiento([FromBody] MovimientosInventario movimiento)
         {

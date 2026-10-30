@@ -6,5 +6,6 @@ namespace Capa_Datos
     public interface IMovimientosInventarioDatos
     {
         void InsertarMovimiento(MovimientosInventario movimiento);
+        IEnumerable<MovimientosInventario> ObtenerMovimientos();
     }
 }

@@ -11,5 +11,7 @@ namespace Capa_Datos
         void Insertar(Usuario usuario);
         void Actualizar(Usuario usuario);
         void Eliminar(int id);
+        IEnumerable<Usuario> ObtenerTodosLosUsuarios();
+        void CambiarEstado(int id, bool estado);
     }
 }
