@@ -3,6 +3,7 @@
     [Nombre]      NVARCHAR (50)  NOT NULL,
     [Descripcion] NVARCHAR (255) NULL,
     [Estado]      BIT            DEFAULT ((1)) NULL,
+    [NotaPrueba]  NVARCHAR (100) NULL,
     PRIMARY KEY CLUSTERED ([CategoriaID] ASC),
     UNIQUE NONCLUSTERED ([Nombre] ASC)
 );

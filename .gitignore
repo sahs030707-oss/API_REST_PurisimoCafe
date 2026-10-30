@@ -11,3 +11,6 @@ obj/
 
 # Test results
 TestResults/
+
+*.dbmdl
+*.jfm
