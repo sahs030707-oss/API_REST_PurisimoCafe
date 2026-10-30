@@ -12,17 +12,17 @@ namespace Capa_Negocio
             _movimientosDatos = movimientosDatos;
         }
 
+        public IEnumerable<MovimientosInventario> ObtenerMovimientos()
+        {
+            return _movimientosDatos.ObtenerMovimientos();
+        }
+
         public void InsertarMovimiento(MovimientosInventario movimiento)
         {
             if (movimiento == null)
                 throw new ArgumentNullException(nameof(movimiento));
 
             _movimientosDatos.InsertarMovimiento(movimiento);
-        }
-
-        public IEnumerable<MovimientosInventario> ObtenerMovimientos()
-        {
-            return _movimientosDatos.ObtenerMovimientos();
         }
     }
 }

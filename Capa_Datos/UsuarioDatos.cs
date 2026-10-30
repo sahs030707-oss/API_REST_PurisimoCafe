@@ -2,7 +2,6 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using System.Text.Json.Serialization;
 
 
 namespace Capa_Datos
@@ -38,12 +37,14 @@ namespace Capa_Datos
                     {
                         NombreRol = reader.GetString(4)
                     },
-                    Estado = !reader.IsDBNull(5) && reader.GetBoolean(5)
+
+                    Estado = !reader.IsDBNull(5) &&  reader.GetBoolean(5),
 
                 });
             }
             return usuarios;
         }
+
 
         // Obtener todos los usuarios, activos e inactivos
         public IEnumerable<Usuario> ObtenerTodosLosUsuarios()
@@ -70,6 +71,7 @@ namespace Capa_Datos
             }
             return usuarios;
         }
+
 
         // Activar o desactivar un usuario
         public void CambiarEstado(int id, bool estado)

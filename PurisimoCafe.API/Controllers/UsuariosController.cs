@@ -1,4 +1,4 @@
-﻿using Capa_Entidades;
+using Capa_Entidades;
 using Capa_Negocio;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -72,7 +72,6 @@ namespace PurisimoCafe.API.Controllers
                 return StatusCode(500, $"Error al cambiar el estado: {ex.Message}");
             }
         }
-
 
         /// <summary>
         /// Muestra Un Usuario Registrado Por Su ID
