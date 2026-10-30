@@ -23,6 +23,18 @@ namespace Capa_Negocio
             return _usuarioDatos.ObtenerUsuarios();
         }
 
+        // Obtener todos los usuarios, activos e inactivos
+        public IEnumerable<Usuario> GetTodosLosUsuarios()
+        {
+            return _usuarioDatos.ObtenerTodosLosUsuarios();
+        }
+
+        // Activar o desactivar un usuario
+        public void CambiarEstadoUsuario(int id, bool estado)
+        {
+            _usuarioDatos.CambiarEstado(id, estado);
+        }
+
         // Obtener usuario por ID
         public Usuario? GetUsuarioById(int id)
         {

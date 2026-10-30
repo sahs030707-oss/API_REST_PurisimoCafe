@@ -18,5 +18,7 @@ namespace Capa_Entidades
         public string? Motivo { get; set; }
 
         public DateTime Fecha { get; set; }
+
+        public string? NombreProducto { get; set; }
     }
 }

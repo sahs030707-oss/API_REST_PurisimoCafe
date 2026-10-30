@@ -1,5 +1,4 @@
-﻿using Capa_Datos;
-using Capa_Entidades;
+﻿using Capa_Entidades;
 
 namespace Capa_Negocio
 {
@@ -19,6 +18,11 @@ namespace Capa_Negocio
                 throw new ArgumentNullException(nameof(movimiento));
 
             _movimientosDatos.InsertarMovimiento(movimiento);
+        }
+
+        public IEnumerable<MovimientosInventario> ObtenerMovimientos()
+        {
+            return _movimientosDatos.ObtenerMovimientos();
         }
     }
 }

@@ -34,5 +34,22 @@ namespace PurisimoCafe.API.Controllers
                 return StatusCode(500, $"Error al registrar movimiento: {ex.Message}");
             }
         }
+
+        /// <summary>
+        /// Muestra Todas Las Mermas Registradas
+        /// </summary>
+        [HttpGet]
+        public IActionResult ObtenerMovimientos()
+        {
+            try
+            {
+                var lista = _movimientosServicio.ObtenerMovimientos();
+                return Ok(lista);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al obtener movimientos: {ex.Message}");
+            }
+        }
     }
 }

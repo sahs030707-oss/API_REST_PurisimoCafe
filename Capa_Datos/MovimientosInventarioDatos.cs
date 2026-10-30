@@ -32,5 +32,32 @@ namespace Capa_Datos
 
             cmd.ExecuteNonQuery();
         }
+
+        public IEnumerable<MovimientosInventario> ObtenerMovimientos()
+        {
+            var lista = new List<MovimientosInventario>();
+            using var con = new SqlConnection(_connectionString);
+            con.Open();
+
+            using var cmd = new SqlCommand("Sp_ObtenerMovimientos", con)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                lista.Add(new MovimientosInventario
+                {
+                    MovimientoID = reader.GetInt32(0),
+                    ProductoID = reader.GetInt32(1),
+                    NombreProducto = reader.GetString(2),
+                    Cantidad = reader.GetInt32(3),
+                    Motivo = reader.GetString(4),
+                    Fecha = reader.IsDBNull(5) ? DateTime.MinValue : reader.GetDateTime(5)
+                });
+            }
+            return lista;
+        }
     }
 }
