@@ -1,4 +1,4 @@
-using Capa_Entidades;
+﻿using Capa_Entidades;
 using Capa_Negocio;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

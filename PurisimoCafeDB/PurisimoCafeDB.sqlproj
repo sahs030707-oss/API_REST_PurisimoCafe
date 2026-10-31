@@ -117,8 +117,5 @@
     <Build Include="dbo\Stored Procedures\Sp_ObtenerUsuarioPorId.sql" />
     <Build Include="dbo\Stored Procedures\Sp_ObtenerVentaPorId.sql" />
     <Build Include="dbo\Stored Procedures\Sp_ObtenerVentas.sql" />
-    <Build Include="dbo\Stored Procedures\Sp_ObtenerTodosUsuarios.sql" />
-    <Build Include="dbo\Stored Procedures\Sp_CambiarEstadoUsuario.sql" />
-    <Build Include="dbo\Stored Procedures\Sp_ObtenerMovimientos.sql" />
   </ItemGroup>
 </Project>

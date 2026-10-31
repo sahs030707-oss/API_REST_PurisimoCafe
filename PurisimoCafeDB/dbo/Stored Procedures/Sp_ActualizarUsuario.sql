@@ -1,4 +1,5 @@
-﻿--ACTUALIZAR
+﻿
+--ACTUALIZAR
 CREATE PROCEDURE [dbo].[Sp_ActualizarUsuario]
 	@UsuarioID INT ,
 	@Nombre NVARCHAR(100),

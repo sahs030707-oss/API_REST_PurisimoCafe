@@ -1,4 +1,4 @@
---OBTENER TODOS (activos e inactivos)
+﻿--OBTENER TODOS (activos e inactivos)
 CREATE PROCEDURE [dbo].[Sp_ObtenerTodosUsuarios]
 AS
 BEGIN
@@ -13,4 +13,3 @@ BEGIN
     INNER JOIN Roles r
         ON u.RolID = r.RolID
 END
-
