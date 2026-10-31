@@ -24,6 +24,5 @@ namespace Capa_Negocio
 
             _movimientosDatos.InsertarMovimiento(movimiento);
         }
-
     }
 }

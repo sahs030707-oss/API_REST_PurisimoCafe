@@ -37,12 +37,14 @@ namespace Capa_Datos
                     {
                         NombreRol = reader.GetString(4)
                     },
+
                     Estado = !reader.IsDBNull(5) &&  reader.GetBoolean(5),
 
                 });
             }
             return usuarios;
         }
+
 
         // Obtener todos los usuarios, activos e inactivos
         public IEnumerable<Usuario> ObtenerTodosLosUsuarios()
@@ -70,6 +72,7 @@ namespace Capa_Datos
             return usuarios;
         }
 
+
         // Activar o desactivar un usuario
         public void CambiarEstado(int id, bool estado)
         {
@@ -80,6 +83,7 @@ namespace Capa_Datos
             cmd.Parameters.AddWithValue("@Estado", estado);
             cmd.ExecuteNonQuery();
         }
+
 
         // Obtener usuario por Id
         public Usuario? ObtenerUsuarioPorId(int id)

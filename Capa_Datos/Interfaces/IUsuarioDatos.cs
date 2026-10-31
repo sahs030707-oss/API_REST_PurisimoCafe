@@ -1,9 +1,8 @@
-using System.Collections.Generic;
 using Capa_Entidades;
 
 namespace Capa_Datos
 {
-    // Interfaz añadida para permitir el mockeo de UsuarioDatos en pruebas unitarias.
+    // Interfaz aÃ±adida para permitir el mockeo de UsuarioDatos en pruebas unitarias.
     public interface IUsuarioDatos
     {
         IEnumerable<Usuario> ObtenerUsuarios();
@@ -11,6 +10,7 @@ namespace Capa_Datos
         void Insertar(Usuario usuario);
         void Actualizar(Usuario usuario);
         void Eliminar(int id);
+
         IEnumerable<Usuario> ObtenerTodosLosUsuarios();
         void CambiarEstado(int id, bool estado);
     }
